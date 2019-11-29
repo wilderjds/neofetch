@@ -2021,6 +2021,11 @@ get_wm() {
     wm_run=1
 }
 
+get_colorscheme() {
+    for i in 30 31 91 33 32 36 34 35 95 37; do printf -v colorscheme "%b\033[${i}m\033[0m"  "$colorscheme";done;
+
+}
+
 get_wm_theme() {
     ((wm_run != 1)) && get_wm
     ((de_run != 1)) && get_de
@@ -3961,7 +3966,7 @@ get_cols() {
 
     if [[ "$color_blocks" == "on" ]]; then
         # Convert the width to space chars.
-        printf -v block_width "%${block_width}s"
+        printf -v block_width A #"%${block_width}s"
 
         # Generate the string.
         for ((block_range[0]; block_range[0]<=block_range[1]; block_range[0]++)); do
