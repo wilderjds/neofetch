@@ -2026,6 +2026,11 @@ get_colorscheme() {
 
 }
 
+get_nil() {
+    printf -v nil " "
+}
+
+
 get_wm_theme() {
     ((wm_run != 1)) && get_wm
     ((de_run != 1)) && get_de
